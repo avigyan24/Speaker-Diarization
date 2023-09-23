@@ -8,10 +8,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the FastAPI Docker image
-      run: docker build -t '${{secrets.DOCKER_LOGIN}}'/Speaker-Diarization:'${{github.sha}}' .
+      run: docker build -t '${{secrets.DOCKER_LOGIN}}'/speaker-diarization:'${{github.sha}}' .
       
     - name: Login to docker
       run: docker login --username '${{secrets.DOCKER_LOGIN}}' --password '${{secrets.DOCKER_PASSWORD}}'
 
     - name: Push the docker image
-      run: docker push '${{secrets.DOCKER_LOGIN}}'/Speaker-Diarization:'${{github.sha}}'
+      run: docker push '${{secrets.DOCKER_LOGIN}}'/speaker-diarization:'${{github.sha}}'
